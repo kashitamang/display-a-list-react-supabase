@@ -7,3 +7,11 @@ export async function getShows() {
 
   return response.body;
 }
+
+export async function getStars() {
+  const response = await client 
+    .from('stars')
+    .select('*');
+  
+  return response.body;
+}
