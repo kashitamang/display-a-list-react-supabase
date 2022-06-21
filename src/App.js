@@ -1,11 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 // import your arrays here
+import ShowsList from './ShowsList.js';
 
 function App() {
   return (
     <div className="App">
-        Render all your lists here. Pass the arrays as props.
+      <h1>My Lists</h1>
+      <ShowsList/>
     </div>
   );
 }
