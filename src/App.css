@@ -21,6 +21,25 @@
   align-items: baseline;
 }
 
+.star-item {
+  border-radius: 5px;
+  width: 325px;
+  background-color: rgb(147, 160, 156);
+  color: rgb(244, 250, 233);
+  padding: 10px;
+  margin: 30px;
+  height: 200px;
+}
+
+.stars-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
