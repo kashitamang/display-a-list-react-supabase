@@ -1,4 +1,4 @@
-export default function Stars({ name, from, known_for}) {
+export default function Stars({ name, from, known_for }) {
   return (
     <div className="show-item">
       <h2>{name}</h2>

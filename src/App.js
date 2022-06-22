@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 // import your Lists here
 import ShowsList from './ShowsList.js';
 import StarsList from './StarsList.js';
-import 
+import HostsList from './HostsList.js';
 //import fetch utils 
-import { getShows, getStars } from './services/fetch-utils.js';
+import { getShows, getStars, getHosts } from './services/fetch-utils.js';
 
 
 function App() {
   //set state 
   const [shows, setShows] = useState([]);
   const [stars, setStars] = useState([]);
-
+  const [hosts, setHosts] = useState([]);
   //fetch functions 
   async function fetchShowsData() {
     const data = await getShows();
@@ -24,6 +24,10 @@ function App() {
     setStars(data);
   }
 
+  async function fetchHostsData(){
+    const data = await getHosts();
+    setHosts(data);
+  }
   //useEffect 
   useEffect(() => {
     fetchShowsData();
@@ -31,6 +35,10 @@ function App() {
 
   useEffect(() => {
     fetchStarsData();
+  }, []);
+
+  useEffect(() => {
+    fetchHostsData();
   }, []);
 
   //return HTML element
@@ -41,7 +49,7 @@ function App() {
       <h1>Reality TV Stars</h1>
       <StarsList stars={stars}/>
       <h1>Reality TV Hosts</h1>
-      <HostsList/>
+      <HostsList hosts={hosts}/>
     </div>
   );
 }

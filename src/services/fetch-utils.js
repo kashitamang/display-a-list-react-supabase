@@ -15,3 +15,11 @@ export async function getStars() {
   
   return response.body;
 }
+
+export async function getHosts() {
+  const response = await client 
+    .from('hosts')
+    .select('*');
+
+  return response.body;
+}
