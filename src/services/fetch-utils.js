@@ -23,3 +23,11 @@ export async function getHosts() {
 
   return response.body;
 }
+
+export async function getGenres(){
+  const response = await client 
+    .from('genres')
+    .select('*');
+    
+  return response.body;
+}

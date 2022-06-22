@@ -1,4 +1,4 @@
-import Host from './HostItem.js';
+import Host from './Host.js';
 
 export default function HostsList({
   hosts = [],

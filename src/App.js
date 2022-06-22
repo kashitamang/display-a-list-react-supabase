@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import ShowsList from './ShowsList.js';
 import StarsList from './StarsList.js';
 import HostsList from './HostsList.js';
+import GenresList from './GenresList.js';
 //import fetch utils 
-import { getShows, getStars, getHosts } from './services/fetch-utils.js';
+import { getShows, getStars, getHosts, getGenres } from './services/fetch-utils.js';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const [shows, setShows] = useState([]);
   const [stars, setStars] = useState([]);
   const [hosts, setHosts] = useState([]);
+  const [genres, setGenres] = useState([]);
   //fetch functions 
   async function fetchShowsData() {
     const data = await getShows();
@@ -28,6 +30,11 @@ function App() {
     const data = await getHosts();
     setHosts(data);
   }
+
+  async function fetchGenresData() {
+    const data = await getGenres();
+    setGenres(data);
+  }
   //useEffect 
   useEffect(() => {
     fetchShowsData();
@@ -41,6 +48,9 @@ function App() {
     fetchHostsData();
   }, []);
 
+  useEffect(() => {
+    fetchGenresData();
+  }, []);
   //return HTML element
   return (
     <div className="App">
@@ -50,6 +60,8 @@ function App() {
       <StarsList stars={stars}/>
       <h1>Reality TV Hosts</h1>
       <HostsList hosts={hosts}/>
+      <h1>Reality TV Genres</h1>
+      <GenresList genres={genres}/>
     </div>
   );
 }
